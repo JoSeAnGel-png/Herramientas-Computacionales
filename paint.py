@@ -1,4 +1,3 @@
-
 """Paint, for drawing shapes.
 
 Programa interactivo de dibujo usando la libreria turtle.
@@ -9,6 +8,7 @@ entre esos dos puntos.
 
 from turtle import *
 from freegames import vector
+import turtle as t
 
 
 def line(start, end):
@@ -46,11 +46,21 @@ def square(start, end):
 def circle(start, end):
     """Draw circle from start to end.
 
+    El radio del circulo es la diferencia entre end.x y start.x.
+
     Args:
-        start (vector): punto inicial.
-        end (vector): punto final.
+        start (vector): punto donde inicia el dibujo (centro del circulo).
+        end (vector): punto que define el radio del circulo.
     """
-    pass  # TODO
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    radius = end.x - start.x
+    t.circle(radius)
+
+    end_fill()
 
 
 def rectangle(start, end):
